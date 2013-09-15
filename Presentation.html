@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="Presentation.js"></script>
+</head>
+    <body ng-app="presentation">
+        <div ng-controller="PresentationController">
+            <h1>{{title}}</h1>
+            <div ng-view>
+            </div>
+        </div>
+    </body>
+</html>
