@@ -15,10 +15,12 @@
                     Slide {{presentation.currentSlide}} of {{presentation.slideCount}}
                 </div>
                 <div style="float:right; text-align: right; width: 50%">
-                    <input type="button" value="Previous" data-ng-disable="canGoBack()" data-ng-click="goBack()" id="idPrevious" />
-                    <input type="button" value="Next" data-ng-disable="canGoForward()" data-ng-click="goForward()" id="idNext" />
+                    <input type="button" value="Previous" data-ng-disabled="!canGoBack()" data-ng-click="goBack()" id="idPrevious" />
+                    <input type="button" value="Next" data-ng-disabled="!canGoForward()" data-ng-click="goForward()" id="idNext" />
                 </div>
             </div>
+            <h1>{{presentation.title}}</h1>
+            <br/>
             <div data-ng-view>
             </div>
         </div>

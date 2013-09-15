@@ -26,21 +26,16 @@ module.constant('slides', [
 // and dependencies on other modules, such as '$routeProvider', are
 // the exceptions. See http://docs.angularjs.org/guide/module for
 // more information.
-module.config(function ($routeProvider, slides) {
-    // Add each slide
-    for (var i = 0; i < slides.length; i++) {
-        $routeProvider.when("/slides/:slideIndex",
-        {
+module.config(function ($routeProvider) {
+    debugger;
+    $routeProvider
+        .when("/slide/:slideIndex", {
             templateUrl: "Slide.html",
-            controller: PresentationController
+            controller: PresentationController            
+        })
+        .otherwise({
+            redirectTo: "/slide/1"
         });
-    }
-        
-    // Add a default route
-    $routeProvider.otherwise(
-    {
-        redirectTo: "/slides/1"
-    });
 });
 
 // The controller
@@ -53,17 +48,20 @@ function PresentationController($scope, $routeParams, $location, slides) {
         $scope.presentation.currentSlide = 1;
         $scope.presentation.slideCount = 0;
         $scope.presentation.title = "(No Slides)";
+        $scope.slideUrl = "";
     } else if ($routeParams.slideIndex == undefined       // Check whether slideIndex is included in the URL
             || /\D/.test($routeParams.slideIndex)         // Check whether it contanis non-digits
             || parseInt($routeParams.slideIndex) < 1
             || parseInt($routeParams.slideIndex) > slides.length) {      
-        $scope.presentation.currentSlide = 1;
-        $scope.presentation.slideCount = slides.length;
-        $scope.presentation.title = slides[0].title;
+        $scope.presentation.currentSlide = 0;
+        $scope.presentation.slideCount = 0;
+        $scope.presentation.title = "(Invalid Slide Number)";
+        $scope.slideUrl = "";
     } else {
         $scope.presentation.currentSlide = parseInt($routeParams.slideIndex);
         $scope.presentation.slideCount = slides.length;
         $scope.presentation.title = slides[$scope.presentation.currentSlide - 1].title;
+        $scope.slideUrl = slides[$scope.presentation.currentSlide - 1].url;
     }
 
     // True if the current slide is not the first slide in the presentation.
@@ -78,18 +76,11 @@ function PresentationController($scope, $routeParams, $location, slides) {
 
     // Go back one slide
     $scope.goBack = function () {
-        if (!$scope.canGoBack()) {
-            throw new Error("Cannot go back");
-        }
-        $location.path("/slides/" + ($scope.presentation.currentSlide - 1));
+        $location.path("/slide/" + ($scope.presentation.currentSlide - 1));
     };
 
     // Go forward one slide
     $scope.goForward = function () {
-        if (!$scope.canGoForward()) {
-            throw new Error( "Cannot go forward");
-        }   
-        $location.path("/slides/" + ($scope.presentation.currentSlide + 1));
+        $location.path("/slide/" + ($scope.presentation.currentSlide + 1));
     };
-
 }
