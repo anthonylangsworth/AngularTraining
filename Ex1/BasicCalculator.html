@@ -1,12 +1,22 @@
-﻿<script type="text/javascript" src="BasicCalculator.js"></script>
-<form data-ng-controller="BasicCalculator" name="form">
-    <label for="addend1">Addend 1:</label>        
-    <input type="text" name="addend1" data-ng-model="addend1" />
-    <br/>
-    <label for="addend2">Addend 2:</label>        
-    <input type="text" name="addend2" data-ng-model="addend2" />
-    <br/>
-    <input type="button" data-ng-click="add()" value="Add" />
-    <br/>
-    <span>Sum: </span><span>{{sum}}</span>
-</form>
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Basic Calculator (Ex 1)</title>
+    <link rel="stylesheet" href="../Content/bootstrap.css"/>
+    <script type="text/javascript" src="../Scripts/angular.js"></script>
+    <script type="text/javascript" src="BasicCalculator.js"></script>
+</head>
+    <body data-ng-app style="margin: 100px">
+        <h1>Basic Calculator</h1>
+        <form data-ng-controller="BasicCalculator" name="form">
+            <label for="addend1">Addend 1:</label>        
+            <input type="text" name="addend1" data-ng-model="addend1" />
+            <br/>
+            <label for="addend2">Addend 2:</label>        
+            <input type="text" name="addend2" data-ng-model="addend2" />
+            <br/>
+            <input type="button" data-ng-click="add()" value="Add" />
+            <span>Sum: </span><span>{{sum}}</span>
+        </form>
+    </body>
+</html>
