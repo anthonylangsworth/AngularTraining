@@ -1,18 +1,25 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-    <script type="text/javascript" src="Scripts/angular.min.js"></script>
-    <script type="text/javascript" src="Presentation.js"></script>
-</head>
-    <body data-ng-app="presentation">
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="Content/bootstrap.min.css" />
+        <!-- HACK: Load JQuery before angular so that scripts referenced in ng-views are loaded -->
+        <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="Scripts/angular.js"></script>
+        <script type="text/javascript" src="Presentation.js"></script>
+    </head>
+    <body data-ng-app="presentation" style="background: #f0f0f0; width: 100%; height: 100%; padding: 10px">
         <div data-ng-controller="PresentationController">
-            <h1>{{title}}</h1>
-            <div data-ng-view>
+            <div style="width:100%; padding-bottom: 50px">
+                <div style="float:left; text-align: left; width: 50%">
+                    Slide {{presentation.currentSlide}} of {{presentation.slideCount}}
+                </div>
+                <div style="float:right; text-align: right; width: 50%">
+                    <input type="button" value="Previous" data-ng-disable="canGoBack()" data-ng-click="goBack()" id="idPrevious" />
+                    <input type="button" value="Next" data-ng-disable="canGoForward()" data-ng-click="goForward()" id="idNext" />
+                </div>
             </div>
-            <div>
-                <button value="Next"></button>
-                <button value="Previous"></button>
+            <div data-ng-view>
             </div>
         </div>
     </body>
