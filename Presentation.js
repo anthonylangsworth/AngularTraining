@@ -4,28 +4,10 @@ var module = angular.module(
     []                            // No dependencies on other modules
 );
 
-// I could create  a "slides" service but zall the service would contain is
-// data so that is what the $rootScope is for. See "$rootScope exists, 
-// but it can be used for evil" at http://docs.angularjs.org/misc/faq.
-//module.factory('slides', function() {
-//    // Add or remove slides by adding them to the array below 
-//    var slidesService = [
-//        {
-//            title: "Basic Calculator (AngularJS)",
-//            url: "Ex1/BasicCalculator.html"
-//        },
-//        {
-//            title: "Basic Calculator (Web Forms)",
-//            url: "Ex1/BasicCalculatorWebForm.aspx"
-//        }
-//    ];
-
-//    return slidesService;
-//});
-
 // Add or remove slides by adding them to the array below. 
 // Use this rather than a global variable to allow easier
-// testing.
+// testing. Constants can also be referenced duing config()
+// (see below).
 module.constant('slides', [
     {
         title: "Basic Calculator (AngularJS)",
@@ -60,8 +42,8 @@ module.config(function ($routeProvider, slides) {
 // The controller
 function PresentationController($scope, $routeParams, slides) {
     if ($routeParams.slideIndex == undefined) {
-        $scope.title = "Presentation Title";
+        $scope.$parent.title = "Presentation Title";
     } else {
-        $scope.title = slides[$routeParams.slideIndex].title;
+        $scope.$parent.title = slides[parseInt($routeParams.slideIndex) - 1].title;
     }
 }
