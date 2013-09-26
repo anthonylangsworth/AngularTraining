@@ -1,4 +1,4 @@
-﻿function BasicCalculator($scope, $log) {
+﻿function BasicCalculator($scope) {
     $scope.addend1 = 5;
     $scope.addend2 = 10;
 

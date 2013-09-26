@@ -58,12 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Ex1\BasicCalculator.js" />
-    <Content Include="Ex2\BasicCalculatorWebForm.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Ex1\BasicCalculator.html" />
+    <Content Include="Ex2\Validation.html" />
+    <Content Include="Ex2\Validation.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Presentation.html" />
     <Content Include="Presentation.js" />
@@ -383,13 +384,6 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ex2\BasicCalculatorWebForm.aspx.cs">
-      <DependentUpon>BasicCalculatorWebForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Ex2\BasicCalculatorWebForm.aspx.designer.cs">
-      <DependentUpon>BasicCalculatorWebForm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
