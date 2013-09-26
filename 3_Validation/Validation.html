@@ -8,10 +8,9 @@
 </head>
     <body ng-app="validationExample" style="margin: 10px">
         <h1>Validation</h1>
-        <form name="myForm" ng-controller="ValidationController">
+        <form name="myForm">
             <label for="txtNumber">Number: </label>
-            <input id="txtNumber" name="txtNumber" type="text" ng-model="model.number" required cba-staff-number />
-            <div ng-show="myForm.txtNumber.$dirty && myForm.txtNumber.$error.required">Field is required</div>
+            <input id="txtNumber" name="txtNumber" type="text" ng-model="model.number" cba-staff-number />
             <div ng-show="myForm.txtNumber.$dirty && myForm.txtNumber.$error.cbaStaffNumber">Field is not a valid CBA staff number</div>
         </form>
     </body>
