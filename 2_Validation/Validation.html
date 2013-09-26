@@ -10,7 +10,7 @@
         <form name="myForm">
             <label for="txtNumber">Number: </label>
             <input id="txtNumber" name="txtNumber" type="text" ng-model="number" required />
-            <div ng-show="myForm.txtNumber.$dirty && myForm.txtNumber.$error.required">Must be a number</div>
+            <div ng-show="myForm.txtNumber.$dirty && myForm.txtNumber.$error.required">Field is required</div>
         </form>
     </body>
 </html>

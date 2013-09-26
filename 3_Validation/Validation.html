@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Validation</title>
+    <link rel="stylesheet" href="../Content/bootstrap.css"/>
+    <script type="text/javascript" src="../Scripts/angular.js"></script>
+    <script type="text/javascript" src="Validation.js"></script>
+</head>
+    <body ng-app="validation.example" style="margin: 10px">
+        <h1>Validation</h1>
+        <form name="myForm" ng-controller="ValidationController">
+            <label for="txtNumber">Number: </label>
+            <input id="txtNumber" name="txtNumber" type="text" ng-model="number" required cba-staff-number />
+            <div ng-show="myForm.txtNumber.$dirty && myForm.txtNumber.$error.required">Field is required</div>
+            <div ng-show="myForm.txtNumber.$dirty && myForm.txtNumber.$error.cbaStaffNumber">Field is not a valid CBA staff number</div>
+        </form>
+    </body>
+</html>

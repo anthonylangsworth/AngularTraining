@@ -57,14 +57,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ex1\BasicCalculator.js" />
+    <Content Include="3_Validation\Validation.html" />
+    <Content Include="3_Validation\Validation.js" />
+    <Content Include="1_Intro\BasicCalculator.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Ex1\BasicCalculator.html" />
-    <Content Include="Ex2\Validation.html" />
-    <Content Include="Ex2\Validation.js" />
+    <Content Include="1_Intro\BasicCalculator.html" />
+    <Content Include="2_Validation\Validation.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Presentation.html" />
     <Content Include="Presentation.js" />
