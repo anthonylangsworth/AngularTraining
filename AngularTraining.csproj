@@ -57,18 +57,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="3_Validation\Validation.html" />
-    <Content Include="3_Validation\Validation.js" />
-    <Content Include="1_Intro\BasicCalculator.js" />
+    <Content Include="CBAStaffNumberValidation\Validation.html" />
+    <Content Include="CBAStaffNumberValidation\Validation.js" />
+    <Content Include="Intro\BasicCalculator.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="1_Intro\BasicCalculator.html" />
-    <Content Include="2_Validation\Validation.html" />
+    <Content Include="Intro\BasicCalculator.html" />
+    <Content Include="Validation\Validation.html" />
+    <Content Include="Default.html" />
+    <Content Include="Default.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Presentation.html" />
-    <Content Include="Presentation.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.js" />
     <Content Include="Scripts\angular-bootstrap-prettify.min.js" />
     <Content Include="Scripts\angular-bootstrap.js" />
@@ -380,7 +380,6 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Slide.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>

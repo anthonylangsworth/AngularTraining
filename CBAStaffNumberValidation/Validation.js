@@ -1,8 +1,8 @@
-﻿var module = angular.module(
-        "validationExample",  // Name
-        []);                  // No dependencies
+﻿angular.module("validationExample", ["validationExample.directives"]);
 
-var regExp = /^\d{8}$/;       // 8 digits
+var module = angular.module(
+        "validationExample.directives",  // Name
+        []);                             // No dependencies
 
 module.directive('cbaStaffNumber', function () {                  // Called once when the first instance of the directive is parsed.
                                                                   // Injection is possible, e.g. pass $http, $timeout, etc
@@ -14,7 +14,7 @@ module.directive('cbaStaffNumber', function () {                  // Called once
             element.bind("blur", function() {                     // "blur" event = lost focus
                 controller.$setValidity(
                     'cbaStaffNumber',                             // Value to set on $error object
-                    regExp.test(element[0].value));               // True/false state
+                    /^\d{8}$/.test(element[0].value));            // True/false state if it matches 8 digits
                 scope.$apply();                                   // Force an update.
             });
         }

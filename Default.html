@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Angular Training Examples</title>
+    <link rel="stylesheet" href="Content/bootstrap.css"/>
+    <script type="text/javascript" src="Scripts/angular.js"></script>
+    <script type="text/javascript" src="Default.js"></script>
+</head>
+<body style="margin: 100px" ng-app>
+    <h1>Angular Training Examples</h1>
+    <ul ng-controller="TopicsController">
+        <li ng-repeat="topic in topics">
+            <a href="{{topic.url}}">Example {{$index + 1}}: {{topic.name}}</a>
+        </li>
+    </ul>
+</body>
+</html>
