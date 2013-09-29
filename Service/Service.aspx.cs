@@ -15,7 +15,12 @@ namespace AngularTraining.Service
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static string GetWeather()
         {
-            return "{ temp: '26', weather: 'sunny' }";
+            // TODO: Check CSRF token
+
+            // NOTE: 
+            // 1. Do not use single quotes
+            // 2. Ensure all member names are quoted
+            return "{ \"temp\": 26, \"weather\": \"sunny\" }";
         }
     }
 }

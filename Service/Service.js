@@ -17,7 +17,7 @@ angular.module("weather.services", [])
                     })
                     .success(function (data, status, headers, config) {
                         debugger;
-                        var response = eval(data.d);
+                        var response = angular.fromJson(data.d);         // Like $.parseJSON from JQuery
                         $log.info("Success. Temp: " + response.temp + ", Weather: " + response.weather);
                     })
                     .error(function(data, status, headers, config) {
