@@ -11,17 +11,16 @@ angular.module("weather.services", [])
                         method: "POST",                                  // HTTP verb
                         url: "/Service/Service.aspx/GetWeather",         // Target URL
                         contentType: "application/json; charset=utf-8",  // MIME type of content sent
-                        data: {},                                        // Data to send
+                        data: { args: { "cityName": cityName } },        // Data to send
                         dataType: "json",                                // Sending JSON
                         accept: "application/json"                       // Except JSON results
                     })
                     .success(function (data, status, headers, config) {
-                        debugger;
                         var response = angular.fromJson(data.d);         // Like $.parseJSON from JQuery
                         $log.info("Success. Temp: " + response.temp + ", Weather: " + response.weather);
                     })
                     .error(function(data, status, headers, config) {
-                        $log.info("Failure: " + data.d);
+                        $log.error("Failure!");
                     });
             }
         };
@@ -31,4 +30,9 @@ function WeatherController($scope, weatherService) {
     $scope.updateWeather = function() {
         weatherService.getWeather("Sydney");
     };
+
+    $scope.cities = ["Sydney", "Melbourne", "Brisbane"];
+    $scope.selectedCity = $scope.cities[0];
+
+    $scope.calling = false;
 }

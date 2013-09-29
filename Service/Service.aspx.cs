@@ -22,10 +22,15 @@ namespace AngularTraining.Service
         public string weather;
     }
 
+    public class Args
+    {
+        public string cityName;
+    }
+
     public partial class Service : System.Web.UI.Page
     {
         [WebMethod()]
-        public static string GetWeather()
+        public static string GetWeather(Args args)
         {
             // TODO: Check CSRF token
 
@@ -37,13 +42,13 @@ namespace AngularTraining.Service
                 new DataContractJsonSerializer(typeof(Forecast));
             Forecast forecast = new Forecast()
             {
-                temp = 22,
-                weather = "Sunny"
+                temp = new Random().Next() % 10 + 20,
+                weather = new Random().Next() % 2 == 0 ? "Sunny" : "Rain"
             };
             string result;
 
             // Wait 1 second
-            Thread.CurrentThread.Sleep(1000);
+            Thread.Sleep(1000);
 
             using (MemoryStream memoryStream = new MemoryStream())
             {

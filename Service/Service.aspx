@@ -7,9 +7,13 @@
     <script type="text/javascript" src="../Scripts/angular.js"></script>
     <script type="text/javascript" src="Service.js"></script>
 </head>
-<body ng-app="weather" ng-controller="WeatherController">
+<body ng-app="weather" ng-controller="WeatherController" style="margin: 100px">
+    <h1>Weather</h1>
     <form id="form1" runat="server">
-        <input type="button" ng-click="updateWeather()" value="Update"/>
+        <select ng-model="selectedCity" ng-options="city for city in cities"> </select>
+        <input type="button" ng-click="updateWeather()" ng-disabled="calling" value="Update"/> <br/><br/>
+        <div>Temperature: {{temp}}</div>
+        <div>Weather: {{weather}}</div>
     </form>
 </body>
 </html>
