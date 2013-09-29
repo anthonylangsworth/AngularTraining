@@ -65,6 +65,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Intro\BasicCalculator.html" />
+    <Content Include="Service\Service.aspx" />
+    <Content Include="Service\Service.html" />
+    <Content Include="Service\Service.js" />
     <Content Include="Validation\Validation.html" />
     <Content Include="Default.html" />
     <Content Include="Default.js" />
@@ -385,6 +388,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Service.aspx.cs">
+      <DependentUpon>Service.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Service\Service.aspx.designer.cs">
+      <DependentUpon>Service.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

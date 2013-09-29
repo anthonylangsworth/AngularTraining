@@ -15,6 +15,10 @@
         {
             name: "CBA Staff Number Validation",
             url: "CBAStaffNumberValidation/Validation.html"
+        },
+        {
+            name: "Weather",
+            url: "Service/Service.aspx"
         }
     ];
 }
