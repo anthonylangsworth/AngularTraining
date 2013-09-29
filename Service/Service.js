@@ -5,7 +5,7 @@ angular.module("weather", ["weather.services"]);
 angular.module("weather.services", [])
     .factory("weatherService", function ($http, $log, $q) {
         return {
-            getWeather: function (cityName, scope) {
+            getWeather: function (cityName) {
                 var deferred = $q.defer();
                 $http(
                     {
