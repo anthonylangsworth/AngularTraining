@@ -3,9 +3,10 @@
 angular.module("weather", ["weather.services"]);
 
 angular.module("weather.services", [])
-    .factory("weatherService", function ($http, $log) {
+    .factory("weatherService", function ($http, $log, $q) {
         return {
             getWeather: function (cityName, scope) {
+                var deferred = $q.defer();
                 $http(
                     {
                         method: "POST",                                  // HTTP verb
@@ -17,22 +18,38 @@ angular.module("weather.services", [])
                     })
                     .success(function (data, status, headers, config) {
                         var response = angular.fromJson(data.d);         // Like $.parseJSON from JQuery
+                        deferred.resolve(response);
                         $log.info("Success. Temp: " + response.temp + ", Weather: " + response.weather);
                     })
                     .error(function(data, status, headers, config) {
+                        deferred.reject();
                         $log.error("Failure!");
                     });
+                return deferred.promise;
             }
         };
     });
 
 function WeatherController($scope, weatherService) {
-    $scope.updateWeather = function() {
-        weatherService.getWeather("Sydney");
+    $scope.updateWeather = function () {
+        $scope.calling = true;
+        weatherService.getWeather("Sydney").then(
+            function(response) {
+                $scope.temp = response.temp;
+                $scope.weather = response.weather;
+                $scope.calling = false;
+            },
+            function() {
+                alert("Error");
+                $scope.calling = true;
+            });
     };
 
     $scope.cities = ["Sydney", "Melbourne", "Brisbane"];
     $scope.selectedCity = $scope.cities[0];
+    
+    $scope.temp = 0;
+    $scope.weather = "";
 
     $scope.calling = false;
 }

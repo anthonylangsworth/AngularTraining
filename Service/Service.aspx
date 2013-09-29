@@ -11,7 +11,7 @@
     <h1>Weather</h1>
     <form id="form1" runat="server">
         <select ng-model="selectedCity" ng-options="city for city in cities"> </select>
-        <input type="button" ng-click="updateWeather()" ng-disabled="calling" value="Update"/> <br/><br/>
+        <input type="button" ng-click="updateWeather()" ng-disabled="calling" value="Get Forecast"/> <br/><br/>
         <div>Temperature: {{temp}}</div>
         <div>Weather: {{weather}}</div>
     </form>
