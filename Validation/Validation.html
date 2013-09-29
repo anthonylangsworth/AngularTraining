@@ -8,7 +8,7 @@
     <body ng-app style="margin: 100px">
         <h1>Basic Validation</h1>
         <form name="myForm">
-            <label for="txtText">Number: </label>
+            <label for="txtText">Text: </label>
             <input id="txtText" name="txtText" type="text" ng-model="text" required />
             <div ng-show="myForm.txtText.$dirty && myForm.txtText.$error.required">Field is required</div>
         </form>
